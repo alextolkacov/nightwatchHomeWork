@@ -17,10 +17,9 @@
     "url": "https://github.com/alextolkacov/nightwatchTest/issues"
   },
   "homepage": "https://github.com/alextolkacov/nightwatchTest#readme",
-  "dependencies": {
-    "nightwatch": "^1.1.13"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "chromedriver": "^76.0.0"
+    "chromedriver": "^76.0.0",
+    "nightwatch": "^1.1.13"
   }
 }
