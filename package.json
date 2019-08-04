@@ -1,0 +1,26 @@
+{
+  "name": "nightwatchTest",
+  "version": "1.0.0",
+  "description": "My first test",
+  "main": "index.js",
+  "scripts": {
+    "test": "nightwatch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alextolkacov/nightwatchTest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alextolkacov/nightwatchTest/issues"
+  },
+  "homepage": "https://github.com/alextolkacov/nightwatchTest#readme",
+  "dependencies": {
+    "nightwatch": "^1.1.13"
+  },
+  "devDependencies": {
+    "chromedriver": "^76.0.0"
+  }
+}
