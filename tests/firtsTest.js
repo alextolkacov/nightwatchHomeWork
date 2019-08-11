@@ -8,15 +8,13 @@ module.exports = {
         const departureDate = 'input[aria-label="Departure"]'
         const august20 = 'td[aria-label="Tuesday, August 20, 2019"]'
         const submit_btn = 'button[type="submit"]'
-        const spinner = 'div[class="spinner-container"]'
         const sort = 'div[id="ddSortType"]'
         const low_price = 'a[id="price_low"]'
         const depart = ".//div[@class = 'flight-time flight-time-depart']"
-        const arrive = 'div[class="flight-time flight-time-arrive"]'
-        const duration = 'a[class="flight-duration otp-tooltip-trigger"]'
-        const stops = 'div[class="flight-connection-container"]'
-        const price = 'div[class=="price-point price-point-revised use-roundtrippricing"]'
-        const departList = {}
+        const arrive = ".//div[@class = 'flight-time flight-time-arrive']"
+        const stops = ".//div[@class = 'flight-connection-container']"
+        const duration = ".//a[@title = 'On-time performance']"
+        const table = ".//ul[@id = 'flight-result-list-revised']/li"
 
         browser
             .url('https://www.united.com')
@@ -37,25 +35,27 @@ module.exports = {
             .click(sort)
             .click(low_price)
 
-            .elements('xpath', depart, function (item) {
-                for (var i in item.value) {
-                    console.log(item.value)
+            .getText('xpath', table, body => {
+                    for (let key in body) {
+                        browser.text
+                            .getText('xpath', depart, item => {
+                                let val = item.value.split("\n");
+                                console.log(val[1])
+                            })
+                            .getText('xpath', arrive, item => {
+                                let val = item.value.split("\n");
+                                console.log(val[1])
+                            })
+                            .getText('xpath', stops, item => {
+                                let val = item.value.split("\n");
+                                console.log(val[1])
+                            })
+                            .getText('xpath', duration, item => {
+                                let val = item.value.split("\n");
+                                console.log(val[0])
+                            })
+                    }
                 }
-            })
-
-
-
-        // browser.execute(function () {
-        //     var elements = document.getElementsByClassName('flight-time flight-time-depart');
-        //     console.log(elements)
-        //     return elements;
-        // })
-        // console.log(departList)
-
-        // departList = browser.element(depart)
-        // arrive_list = browser.element(arrive)
-        // duration_list = browser.element(duration)
-        // stops_list = browser.element(stops)
-        // price_list = browser.element(price)
+            )
     }
 }
